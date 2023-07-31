@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.box-shadow {
+  box-shadow: 0px 8px 28px rgba(20, 20, 43, 0.1);
+}
+
+.select-border {
+  border-radius: 24px;
+  border: 2px solid transparent;
+  background: linear-gradient(90deg, #548eff, #5ce2ff) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
