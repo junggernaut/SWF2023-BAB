@@ -2,6 +2,10 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import WalletConnect from './WalletConnect';
+import { useContractRead } from 'wagmi';
+import { grtAbi } from '@/abis/grt';
+import { ethers, BigNumber } from 'ethers';
+import { useState } from 'react';
 
 interface Page {
   page: number;
@@ -9,6 +13,7 @@ interface Page {
 
 const TopBar = (props: Page) => {
   const { page } = props;
+
   return (
     <div className="fixed w-full bg-white z-40">
       <div className="max-w-[1440px] mx-auto px-[60px] py-[10px] flex justify-between items-center">

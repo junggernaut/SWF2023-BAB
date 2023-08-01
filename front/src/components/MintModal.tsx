@@ -1,11 +1,7 @@
 import Image from 'next/image';
 import React, { useCallback, useState, Fragment, useEffect } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import Link from 'next/link';
-
-import shortenAddress from '@/utils/shortenAddres';
-import clsx from 'clsx';
-import SpinnerIcon from 'public/icons/spinner.svg';
+import { useMint } from '@/hooks/useMint';
 
 interface ModalProps {
   modalOpen: boolean;
@@ -13,6 +9,8 @@ interface ModalProps {
 }
 const MintModal = (props: ModalProps) => {
   const { modalOpen, setModalOpen } = props;
+  const { mintLoading, mintError, mintSuccess, mintWrite, mintTx } =
+    useMint('30');
 
   return (
     <Transition appear show={modalOpen} as={Fragment}>
@@ -32,7 +30,7 @@ const MintModal = (props: ModalProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0 bg-black bg-opacity-75" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -46,29 +44,19 @@ const MintModal = (props: ModalProps) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full flex flex-col max-w-lg h-[330px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <Dialog.Title as="div" className="flex text-t-l text-black">
-                  Mint Nonce Membership
-                </Dialog.Title>
-
-                <div className="w-full flex-1 relative">
-                  <div className="h-full pt-[20px] flex flex-col items-start gap-y-[10px]">
-                    <div className="flex flex-col w-full text-b-l text-black">
-                      <div className="flex gap-x-2 "></div>
-                      <span> hi </span>
-                    </div>
-
-                    <div className="grow w-full flex text-b-m">
-                      <div className="w-[30%] relative h-full flex flex-col">
-                        <div className="pt-[8%] bottom-0 h-[25%] w-full"></div>
-                      </div>
-                    </div>
-                    <div className="w-[70%] pl-[10%] h-full flex flex-col items-center justify-around">
-                      <div className="w-full h-[75%] flex flex-col justify-around items-center p-[5%]"></div>
-                      <div className="w-full h-[18%] relative "></div>
-
-                      <div className="w-full h-[7%] text-center text-[10px] text-red"></div>
-                    </div>
+              <Dialog.Panel className="w-full flex flex-col max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <div className="w-full flex flex-col gap-y-[20px] relative">
+                  <Image
+                    src="/bikeToken.png"
+                    alt="bikeToken"
+                    width={619}
+                    height={468}
+                  />
+                  <div
+                    className="mt-[20px] cursor-pointer bg-gradient-to-r from-[#01E99D] to-[#07D1D3] w-full py-[14px] text-white rounded-[16px] text-center text-[20px] font-bold "
+                    onClick={() => mintWrite?.()}
+                  >
+                    토큰 수령하기
                   </div>
                 </div>
               </Dialog.Panel>
