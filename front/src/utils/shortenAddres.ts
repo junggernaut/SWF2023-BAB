@@ -5,8 +5,8 @@ const shortenAddress = (
 ) => {
   return address
     ? `${address.substring(0, 2 + frontNum)}...${address.substring(
-        20 - backNum,
-        20
+        42 - backNum,
+        42
       )}
   `
     : '';
