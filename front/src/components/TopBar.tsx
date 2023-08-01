@@ -1,28 +1,36 @@
+import clsx from 'clsx';
+import Image from 'next/image';
 import Link from 'next/link';
+import WalletConnect from './WalletConnect';
 
-const TopBar = () => {
+interface Page {
+  page: number;
+}
+
+const TopBar = (props: Page) => {
+  const { page } = props;
   return (
     <div className="fixed w-full bg-white z-40">
-      <div className="max-w-[1440px] mx-auto px-[118px] py-[20px] flex justify-between items-center">
-        <Link href="/"></Link>
+      <div className="max-w-[1440px] mx-auto px-[60px] py-[20px] flex justify-between items-center">
+        <Link href="/">
+          <Image src="/grlogo.png" alt="grlogo" width={136} height={36} />
+        </Link>
         <div className="flex items-center gap-x-[24px]">
-          <Link
-            href="https://calendly.com/julia-bancof/meeting-call?back=1&month=2023-05"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <div className="cursor-pointer py-[4px] font-normal text-[16px] text-black leading-[28px]">
-              Book a demo
+          <Link href="/get">
+            <div
+              className={clsx(
+                'cursor-pointer py-[4px] font-semibold text-[16px] leading-[20px]',
+                page == 0 ? 'text-[#07D1D3]' : 'text-black'
+              )}
+            >
+              탄소배출권 얻기
             </div>
           </Link>
           <Link href="https://app.bancof.io" target="_blank" rel="noreferrer">
-            <div className="cursor-pointer bg-blue rounded-[30px] pt-[7px] pb-[9px] px-[20px]">
-              <span className="font-normal text-white text-[14px] ">
-                Launch App
-              </span>
-            </div>
+            <div className="cursor-pointer ">pricing</div>
           </Link>
         </div>
+        <WalletConnect />
       </div>
     </div>
   );

@@ -57,7 +57,7 @@ contract GRSwapPool {
     require(_amountIn > 0, "amount in = 0");
 
     bool isToken0 = _tokenIn == address(token0);
-    (IERC20 tokenIn, IERC20 tokenOut, uint reserveIn, uint reserveOut) = isToken0
+    (, , uint reserveIn, uint reserveOut) = isToken0
       ? (token0, token1, reserve0, reserve1)
       : (token1, token0, reserve1, reserve0);
 

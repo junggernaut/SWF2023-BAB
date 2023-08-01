@@ -45,7 +45,6 @@ describe("initTest", function () {
     await (await GRPool.addLiquidity(grAmount, usdcAmount)).wait();
 
     console.log(await GRPool.totalSupply());
-    //7071067811
   });
   it("check swap ratio", async function () {
     //if 100 GRT, how many USDC?
