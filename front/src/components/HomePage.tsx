@@ -6,7 +6,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 
-const MainPage1 = () => {
+const HomePage = () => {
   const [category, setCategory] = useState(0);
   return (
     <div className="pt-[70px] w-full overflow-x-hidden">
@@ -70,7 +70,7 @@ const MainPage1 = () => {
     </div>
   );
 };
-export default MainPage1;
+export default HomePage;
 
 interface ListItemProps {
   category: number;
@@ -117,18 +117,27 @@ const ListItem = (props: ListItemProps) => {
     );
   } else if (category == 1) {
     return (
-      <div className="mt-[30px] flex flex-col gap-y-[12px]">
-        <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]"></div>
-        <div className="flex items-center gap-x-[9px]">
-          <span className="text-gradient-right font-bold text-[22px]">
-            상시오픈
-          </span>
-          <span className="text-[#ADB5BD] font-medium text-[14px] ">
-            120명 참여중
-          </span>
+      <Link href="/bike">
+        <div className="mt-[30px] flex flex-col gap-y-[12px] cursor-pointer">
+          <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]  bg-contain relative overflow-hidden">
+            <Image
+              src="/ttareungee.png"
+              alt="tta"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <div className="flex items-center gap-x-[9px]">
+            <span className="text-gradient-right font-bold text-[22px]">
+              상시오픈
+            </span>
+            <span className="text-[#ADB5BD] font-medium text-[14px] ">
+              120명 참여중
+            </span>
+          </div>
+          <span className="font-bold text-[22px] text-[#1E1E1E]">따릉이</span>
         </div>
-        <span className="font-bold text-[22px] text-[#1E1E1E]">따릉이</span>
-      </div>
+      </Link>
     );
   } else {
     return (

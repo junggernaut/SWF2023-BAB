@@ -11,7 +11,7 @@ export default function Bike() {
 
   return (
     <>
-      <TopBar page={0} />
+      <TopBar page={0} setPage={null} />
       <div className="w-full h-[100vh] px-[150px] flex items-center justify-between gap-x-[20px]">
         <div className="overflow-hidden bg-contain w-[550px] h-[400px] relative rounded-[30px]">
           <Image

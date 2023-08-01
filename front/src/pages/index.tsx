@@ -1,9 +1,10 @@
-import MainPage1 from '@/components/MainPage1';
+import HomePage from '@/components/HomePage';
+import MyPage from '@/components/MyPage';
 import TopBar from '@/components/TopBar';
 import Head from 'next/head';
 import { useState } from 'react';
 
-export default function Home() {
+export default function Main() {
   const [page, setPage] = useState(0);
   return (
     <>
@@ -13,8 +14,9 @@ export default function Home() {
       </Head>
       <main>
         <>
-          <TopBar page={page} />
-          {page == 0 ? <MainPage1 /> : <></>}
+          <TopBar page={page} setPage={setPage} />
+          {page == 0 ? <HomePage /> : <></>}
+          {page == 1 ? <MyPage /> : <></>}
         </>
       </main>
     </>

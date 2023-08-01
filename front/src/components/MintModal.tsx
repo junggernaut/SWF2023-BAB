@@ -9,8 +9,7 @@ interface ModalProps {
 }
 const MintModal = (props: ModalProps) => {
   const { modalOpen, setModalOpen } = props;
-  const { mintLoading, mintError, mintSuccess, mintWrite, mintTx } =
-    useMint('30');
+  const { mintLoading, mintError, mintSuccess, mintWrite, mintTx } = useMint();
 
   return (
     <Transition appear show={modalOpen} as={Fragment}>

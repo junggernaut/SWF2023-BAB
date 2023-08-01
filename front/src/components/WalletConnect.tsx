@@ -76,7 +76,7 @@ const WalletConnect = () => {
                 <div className="flex items-center">
                   <GRT />
                   <div className="ml-[8px] text-gradient-right font-bold text-[16px] ">
-                    {`${balance} GRT`}
+                    {`${balance.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} GRT`}
                   </div>
                   <div
                     className="ml-[8px] items-center cursor-pointer rounded-[8px] py-[12px] px-[20px] bg-gradient-to-r from-[#01E99D] to-[#07D1D3]"
