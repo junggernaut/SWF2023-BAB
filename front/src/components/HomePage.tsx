@@ -16,7 +16,7 @@ const HomePage = () => {
         </span>
       </div>
       <div className="w-full bg-white h-[500px] px-[150px]">
-        <div className="mt-[40px] ml-[30px] flex gap-x-[31px]">
+        <div className="mt-[30px] ml-[30px] flex gap-x-[31px]">
           <div className="flex flex-col justify-between items-center h-[73px] ">
             <div
               className={clsx(
@@ -60,7 +60,7 @@ const HomePage = () => {
             <span> 기업바운티</span>
           </div>
         </div>
-        <div className="mt-[40px]">
+        <div className="mt-[30px]">
           <span className="text-[24px] font-bold text-[#1E1E1E]">
             {['전체', '자전거', '기업바운티'].at(category)}
           </span>
@@ -81,7 +81,7 @@ const ListItem = (props: ListItemProps) => {
     return (
       <div className="flex gap-x-[40px]">
         <Link href="/bike">
-          <div className="mt-[30px] flex flex-col gap-y-[12px] cursor-pointer">
+          <div className="mt-[20px] flex flex-col gap-y-[10px] cursor-pointer">
             <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]  bg-contain relative overflow-hidden">
               <Image
                 src="/ttareungee.png"
@@ -98,27 +98,50 @@ const ListItem = (props: ListItemProps) => {
                 120명 참여중
               </span>
             </div>
-            <span className="font-bold text-[22px] text-[#1E1E1E]">따릉이</span>
+            <div className="flex items-end gap-x-[5px]">
+              <span className="font-bold text-[22px] text-[#1E1E1E]">
+                따릉이
+              </span>
+              <span className="text-[#ADB5BD] font-bold text-[14px]">
+                서울 자전거 따릉이
+              </span>
+            </div>{' '}
           </div>
         </Link>
-        <div className="mt-[30px] flex flex-col gap-y-[12px]">
-          <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]"></div>
-          <div className="flex items-center gap-x-[9px]">
-            <span className="text-gradient-right font-bold text-[22px]">
-              40% 달성
-            </span>
-            <span className="text-[#ADB5BD] font-medium text-[14px] ">
-              400/1000 명
-            </span>
+        <Link href="/company">
+          <div className="mt-[20px] flex flex-col gap-y-[10px] cursor-pointer">
+            <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]  bg-contain relative overflow-hidden">
+              <Image
+                src="/samsung.png"
+                alt="tta"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+            <div className="flex items-center gap-x-[9px]">
+              <span className="text-gradient-right font-bold text-[22px]">
+                40% 달성
+              </span>
+              <span className="text-[#ADB5BD] font-medium text-[14px] ">
+                400/1000명
+              </span>
+            </div>
+            <div className="flex items-end gap-x-[5px]">
+              <span className="font-bold text-[22px] text-[#1E1E1E]">
+                '한강, 한그루' 캠페인
+              </span>
+              <span className="text-[#ADB5BD] font-bold text-[14px]">
+                삼성전자
+              </span>
+            </div>
           </div>
-          <span className="font-bold text-[22px] text-[#1E1E1E]">삼성전자</span>
-        </div>
+        </Link>
       </div>
     );
   } else if (category == 1) {
     return (
       <Link href="/bike">
-        <div className="mt-[30px] flex flex-col gap-y-[12px] cursor-pointer">
+        <div className="mt-[20px] flex flex-col gap-y-[10px] cursor-pointer">
           <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]  bg-contain relative overflow-hidden">
             <Image
               src="/ttareungee.png"
@@ -135,24 +158,45 @@ const ListItem = (props: ListItemProps) => {
               120명 참여중
             </span>
           </div>
-          <span className="font-bold text-[22px] text-[#1E1E1E]">따릉이</span>
+          <div className="flex items-end gap-x-[5px]">
+            <span className="font-bold text-[22px] text-[#1E1E1E]">따릉이</span>
+            <span className="text-[#ADB5BD] font-bold text-[14px]">
+              서울 자전거 따릉이
+            </span>
+          </div>
         </div>
       </Link>
     );
   } else {
     return (
-      <div className="mt-[30px] flex flex-col gap-y-[12px]">
-        <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]"></div>
-        <div className="flex items-center gap-x-[9px]">
-          <span className="text-gradient-right font-bold text-[22px]">
-            40% 달성
-          </span>
-          <span className="text-[#ADB5BD] font-medium text-[14px] ">
-            400/1000 명
-          </span>
+      <Link href="/company">
+        <div className="mt-[20px] flex flex-col gap-y-[10px] cursor-pointer">
+          <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]  bg-contain relative overflow-hidden">
+            <Image
+              src="/samsung.png"
+              alt="tta"
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+          <div className="flex items-center gap-x-[9px]">
+            <span className="text-gradient-right font-bold text-[22px]">
+              40% 달성
+            </span>
+            <span className="text-[#ADB5BD] font-medium text-[14px] ">
+              400/1000명
+            </span>
+          </div>
+          <div className="flex items-end gap-x-[5px]">
+            <span className="font-bold text-[22px] text-[#1E1E1E]">
+              '한강, 한그루' 캠페인
+            </span>
+            <span className="text-[#ADB5BD] font-bold text-[14px]">
+              삼성전자
+            </span>
+          </div>
         </div>
-        <span className="font-bold text-[22px] text-[#1E1E1E]">삼성전자</span>
-      </div>
+      </Link>
     );
   }
 };

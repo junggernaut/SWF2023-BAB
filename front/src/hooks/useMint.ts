@@ -18,7 +18,6 @@ export const useMint = () => {
     enabled: isConnected && !!address,
     args: ['30'],
   });
-  console.log(prepareWriteMint);
   const writeMint = useContractWrite(prepareWriteMint.config);
 
   const txMint = useWaitForTransaction({

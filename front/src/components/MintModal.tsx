@@ -9,6 +9,7 @@ interface ModalProps {
 }
 const MintModal = (props: ModalProps) => {
   const { modalOpen, setModalOpen } = props;
+  const [login, setLogin] = useState(false);
   const { mintLoading, mintError, mintSuccess, mintWrite, mintTx } = useMint();
 
   return (
@@ -44,20 +45,34 @@ const MintModal = (props: ModalProps) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full flex flex-col max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <div className="w-full flex flex-col gap-y-[20px] relative">
-                  <Image
-                    src="/bikeToken.png"
-                    alt="bikeToken"
-                    width={619}
-                    height={468}
-                  />
-                  <div
-                    className="mt-[20px] cursor-pointer bg-gradient-to-r from-[#01E99D] to-[#07D1D3] w-full py-[14px] text-white rounded-[16px] text-center text-[20px] font-bold "
-                    onClick={() => mintWrite?.()}
-                  >
-                    토큰 수령하기
+                {login ? (
+                  <div className="w-full flex flex-col gap-y-[20px] relative">
+                    <Image
+                      src="/bikeToken.png"
+                      alt="bikeToken"
+                      width={619}
+                      height={468}
+                    />
+                    <div
+                      className="mt-[20px] cursor-pointer bg-gradient-to-r from-[#01E99D] to-[#07D1D3] w-full py-[14px] text-white rounded-[16px] text-center text-[20px] font-bold "
+                      onClick={() => mintWrite?.()}
+                    >
+                      토큰 수령하기
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div
+                    className="w-full flex flex-col gap-y-[20px] relative cursor-pointer"
+                    onClick={() => setLogin(true)}
+                  >
+                    <Image
+                      src="/login.png"
+                      alt="login"
+                      width={500}
+                      height={500}
+                    />
+                  </div>
+                )}
               </Dialog.Panel>
             </Transition.Child>
           </div>

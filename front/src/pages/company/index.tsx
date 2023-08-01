@@ -3,46 +3,40 @@ import TopBar from '@/components/TopBar';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
-import BikeIcon from 'public/bikeSmall.svg';
-import MintModal from '@/components/MintModal';
+import CompanyIcon from 'public/companylogo.svg';
 
-export default function Bike() {
-  const [modalOpen, setModalOpen] = useState(false);
-
+export default function Company() {
   return (
     <>
       <TopBar page={0} setPage={null} />
       <div className="w-full h-[100vh] px-[150px] flex items-center justify-between gap-x-[20px]">
         <div className="overflow-hidden bg-contain w-[550px] h-[400px] relative rounded-[30px]">
-          <Image
-            src="/bikeDetail.png"
-            alt="bd"
-            layout="fill"
-            objectFit="cover"
-          />
+          <Image src="/samsung.png" alt="bd" layout="fill" objectFit="cover" />
         </div>
         <div className="flex flex-col">
           <div className="flex gap-x-[5px]">
-            <BikeIcon />
+            <CompanyIcon />
             <span className="font-semibold text-[14px] text-[#ADB5BD]">
-              {'자전거>서울자전거 따릉이'}
+              {'기업바운티>삼성전자'}
             </span>
           </div>
           <span className="mt-[15px] text-[#1E1E1E] font-bold text-[22px]">
-            따릉이
+            '한강, 한그루' 캠페인
           </span>
           <span className="mt-[8px] text-[#1E1E1E] text-[16px] font-medium">
-            서울자전거는 누구나, 언제나, 어디서나 쉽고 편리하게 이용할 수 있는
+            삼성전자가 환경의 날을 맞아 '한강, 한그루'캠페인을 진행합니다.
             <br />
-            무인대여 시스템 서울시의 교통체증, 대기오염, 고유 문제를 해결하고
+            참여방법 - 희망하는 공원, 날짜 시간을 정하고 예약일에 나무를 심는다.
             <br />
-            건강한 사회 및 시민들의 삶의 질을 높이고자 마련.
+            *나무는 행사 장소에 준비되어 있습니다.
           </span>
           <span className="mt-[50px] text-gradient-right text-[24px] font-bold">
-            상시오픈
+            40% 달성
           </span>
           <div className="mt-[3px] flex items-center">
-            <span className="font-bold text-[24px] text-[#1E1E1E]">120</span>
+            <span className="font-bold text-[24px] text-[#1E1E1E]">
+              400/1000
+            </span>
             <span className="ml-[3px] mt-[4px] font-medium text-[#ADB5BD] text-[16px]">
               명 참여중
             </span>
@@ -51,7 +45,7 @@ export default function Bike() {
           <div className="mt-[2px] flex gap-x-[20px] items-center">
             <span className="font-bold text-[16px] text-[#ADB5BD]">혜택</span>
             <span className="font-semibold text-[16px] text-[#ADB5BD]">
-              100km 당 10 GRT
+              아기나무 NFT 🌳
             </span>
           </div>
           <div
@@ -62,7 +56,6 @@ export default function Bike() {
           </div>
         </div>
       </div>
-      <MintModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </>
   );
 }
