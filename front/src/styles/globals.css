@@ -19,8 +19,15 @@
   mask-composite: exclude;
 }
 
-.text-gradient {
+.text-gradient-down {
   background: linear-gradient(180deg, #01e99d 0%, #07d1d3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-right {
+  background: var(--grad-1, linear-gradient(178deg, #01e99d 0%, #07d1d3 100%));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

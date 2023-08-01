@@ -11,7 +11,7 @@ const TopBar = (props: Page) => {
   const { page } = props;
   return (
     <div className="fixed w-full bg-white z-40">
-      <div className="max-w-[1440px] mx-auto px-[60px] py-[20px] flex justify-between items-center">
+      <div className="max-w-[1440px] mx-auto px-[60px] py-[10px] flex justify-between items-center">
         <Link href="/">
           <Image src="/grlogo.png" alt="grlogo" width={136} height={36} />
         </Link>

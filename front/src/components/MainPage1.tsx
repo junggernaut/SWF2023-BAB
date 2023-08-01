@@ -4,17 +4,18 @@ import Bike from 'public/bike.svg';
 import Company from 'public/company.svg';
 import { useState } from 'react';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 const MainPage1 = () => {
   const [category, setCategory] = useState(0);
   return (
-    <div className="pt-[90px] w-full overflow-x-hidden">
-      <div className="w-full h-[200px] bg-[#F3F8F7] relative">
-        <span className="absolute left-[150px] bottom-[20px] text-gradient text-[40px] font-bold">
+    <div className="pt-[70px] w-full overflow-x-hidden">
+      <div className="w-full h-[180px] bg-[#F3F8F7] relative">
+        <span className="absolute left-[150px] bottom-[20px] text-gradient-down text-[40px] font-bold">
           탄소배출권 얻기
         </span>
       </div>
-      <div className="w-full bg-white h-[1000px] px-[150px]">
+      <div className="w-full bg-white h-[500px] px-[150px]">
         <div className="mt-[40px] ml-[30px] flex gap-x-[31px]">
           <div className="flex flex-col justify-between items-center h-[73px] ">
             <div
@@ -59,22 +60,90 @@ const MainPage1 = () => {
             <span> 기업바운티</span>
           </div>
         </div>
-        <div className="mt-[80px]">hi</div>
+        <div className="mt-[40px]">
+          <span className="text-[24px] font-bold text-[#1E1E1E]">
+            {['전체', '자전거', '기업바운티'].at(category)}
+          </span>
+          <ListItem category={category} />
+        </div>
       </div>
     </div>
   );
 };
 export default MainPage1;
 
-const list = [
-  {
-    title: '따릉이',
-    limit: null,
-    participants: 120,
-  },
-  {
-    title: '삼성전자',
-    limit: 1000,
-    participants: 400,
-  },
-];
+interface ListItemProps {
+  category: number;
+}
+const ListItem = (props: ListItemProps) => {
+  const { category } = props;
+  if (category == 0) {
+    return (
+      <div className="flex gap-x-[40px]">
+        <Link href="/bike">
+          <div className="mt-[30px] flex flex-col gap-y-[12px] cursor-pointer">
+            <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]  bg-contain relative overflow-hidden">
+              <Image
+                src="/ttareungee.png"
+                alt="tta"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+            <div className="flex items-center gap-x-[9px]">
+              <span className="text-gradient-right font-bold text-[22px]">
+                상시오픈
+              </span>
+              <span className="text-[#ADB5BD] font-medium text-[14px] ">
+                120명 참여중
+              </span>
+            </div>
+            <span className="font-bold text-[22px] text-[#1E1E1E]">따릉이</span>
+          </div>
+        </Link>
+        <div className="mt-[30px] flex flex-col gap-y-[12px]">
+          <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]"></div>
+          <div className="flex items-center gap-x-[9px]">
+            <span className="text-gradient-right font-bold text-[22px]">
+              40% 달성
+            </span>
+            <span className="text-[#ADB5BD] font-medium text-[14px] ">
+              400/1000 명
+            </span>
+          </div>
+          <span className="font-bold text-[22px] text-[#1E1E1E]">삼성전자</span>
+        </div>
+      </div>
+    );
+  } else if (category == 1) {
+    return (
+      <div className="mt-[30px] flex flex-col gap-y-[12px]">
+        <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]"></div>
+        <div className="flex items-center gap-x-[9px]">
+          <span className="text-gradient-right font-bold text-[22px]">
+            상시오픈
+          </span>
+          <span className="text-[#ADB5BD] font-medium text-[14px] ">
+            120명 참여중
+          </span>
+        </div>
+        <span className="font-bold text-[22px] text-[#1E1E1E]">따릉이</span>
+      </div>
+    );
+  } else {
+    return (
+      <div className="mt-[30px] flex flex-col gap-y-[12px]">
+        <div className="h-[220px] w-[400px] border-[1px] rounded-[10px] border-[#ADB5BD]"></div>
+        <div className="flex items-center gap-x-[9px]">
+          <span className="text-gradient-right font-bold text-[22px]">
+            40% 달성
+          </span>
+          <span className="text-[#ADB5BD] font-medium text-[14px] ">
+            400/1000 명
+          </span>
+        </div>
+        <span className="font-bold text-[22px] text-[#1E1E1E]">삼성전자</span>
+      </div>
+    );
+  }
+};
