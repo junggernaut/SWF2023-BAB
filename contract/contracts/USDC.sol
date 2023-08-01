@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract USDC is ERC20 {
-  constructor() ERC20("Green Renaissance Token", "GRT") {
+  constructor() ERC20("USD Coin", "USDC") {
     _mint(msg.sender, 100000000000000000);
   }
 
@@ -14,5 +14,9 @@ contract USDC is ERC20 {
 
   function burn(uint256 amount) external {
     _burn(msg.sender, amount);
+  }
+
+  function decimals() public view virtual override returns (uint8) {
+    return 6;
   }
 }

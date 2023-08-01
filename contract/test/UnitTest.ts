@@ -32,6 +32,17 @@ describe("initTest", function () {
     GRPool = (await deployContract("GRSwapPool", dev1, [GRT.address, USDC.address])) as GRSwapPool;
   });
 
+  it("mint test", async function () {
+    console.log(await GRT.balanceOf(dev1.address));
+
+    const grString = "100000000";
+    const grAmount = ethers.utils.parseUnits(grString, 0);
+    await (await GRT.mint(grAmount)).wait();
+    await (await GRT.mint(grAmount)).wait();
+
+    console.log(await GRT.balanceOf(dev1.address));
+  });
+
   it("init liquidity", async function () {
     //5000000 GRT, 10000000USDC;
     const grString = "5000000";
